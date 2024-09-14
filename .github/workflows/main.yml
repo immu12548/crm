@@ -1,4 +1,4 @@
-name: Build and Export Next.js Project
+name: Next.js CI/CD Pipeline
 
 on:
   push:
@@ -29,7 +29,7 @@ jobs:
         run: npm run export
 
       - name: Upload static site artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: nextjs-static-site
           path: ./out
