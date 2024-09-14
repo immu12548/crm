@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next export"  // Added export script here
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
@@ -31,13 +32,4 @@
     "postcss": "^8",
     "tailwindcss": "^3.4.1"
   }
-  {
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "export": "next export"
-  }
-}
-
 }
