@@ -34,8 +34,4 @@ jobs:
         run: npm run export
 
       # Upload the exported files as an artifact (optional, for static sites)
-      - name: Upload static site artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: nextjs-static-site
-          path: ./out  # The directory where Next.js static files are generated
+      #  # The directory where Next.js static files are generated
