@@ -1,0 +1,41 @@
+name: Next.js CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+        # Monitor commits to both master and develop branches
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu image for the VM
+
+    steps:
+      # Checkout the code from the repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Install Node.js (version 18.x)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'  # Set Node.js version to >= 18.x
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Build the Next.js project
+      - name: Build Next.js project
+        run: npm run build
+
+      # Export the Next.js static site (for static export)
+      - name: Export static site
+        run: npm run export
+
+      # Upload the exported files as an artifact (optional, for static sites)
+      - name: Upload static site artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: nextjs-static-site
+          path: ./out  # The directory where Next.js static files are generated
